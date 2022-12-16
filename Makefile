@@ -1,25 +1,21 @@
-NAME = libftprintf.a
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-SRC = ft_printf.c
-OBJ = $(SRC:.c=.o)
 
+NAME = libftprintf.a
+FLAG = -Wall -Wextra -Werror
+SRC = $(shell find . -name "ft_*.c")
 
 all: $(NAME)
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-$(NAME): $(OBJ)
+$(NAME):
+	@gcc $(FLAG) -c $(SRC)
 	@ar rc $(NAME) *.o
-	@echo "\n$(shell tput setaf 10) $@ built ✅ $(shell tput sgr0)\n"
+	@echo "\n\033[92m $@ built ✅\033[0m\n"
 clean:
-	@/bin/rm -f  *.o
-	@echo "\n$(shell tput setaf 11) object files removed 👋$(shell tput sgr0)\n"
+	@rm -f  *.o
+	@echo "\n\033[36m object files removed 👋\033[0m\n"
 fclean: clean
-	@/bin/rm -f $(NAME)
-	@echo "\n$(shell tput setaf 11) executables removed 👋$(shell tput sgr0)\n"
+	@rm -f $(NAME)
+	@echo "\n\033[36m executables removed 👋\033[0m\n"
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY : all clean fclean re
