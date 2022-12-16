@@ -6,7 +6,7 @@
 /*   By: hece <hece@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 12:47:31 by hece              #+#    #+#             */
-/*   Updated: 2022/12/16 13:00:52 by hece             ###   ########.tr       */
+/*   Updated: 2022/12/16 17:07:15 by hece             ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	ft_putstr(char *str, int checker)
 		write(1, &str[0], 1);
 		return (1);
 	}
+	free (str);
 	return (count);
 }
 
